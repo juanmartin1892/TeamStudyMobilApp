@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+
+<html lang="en" ng-app="StarterApp">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1" />
+
+        <title>Hello World</title>
+
+        
+        <!-- bower:js -->
+        <script src="spec/lib/jquery/dist/jquery.js"></script>
+        <script src="spec/lib/angular/angular.js"></script>
+        <script src="spec/lib/angular-animate/angular-animate.js"></script>
+        <script src="spec/lib/angular-aria/angular-aria.js"></script>
+        <script src="spec/lib/angular-material/angular-material.js"></script>
+        <script src="spec/lib/angular-route/angular-route.js"></script>
+        <script src="spec/lib/angular-resource/angular-resource.js"></script>
+        <script src="spec/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="spec/lib/angular-sanitize/angular-sanitize.js"></script>
+        <!-- endbower -->
+        <!-- inject:js -->
+        <script src="js/app.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/modules/routes.js"></script>
+        <script src="js/resources/courses/CoursesList.js"></script>
+        <script src="js/resources/courses/coursesDetails.js"></script>
+        <script src="js/resources/login/login.js"></script>
+        <script src="js/resources/login/user.js"></script>
+        <script src="js/resources/users/userList.js"></script>
+        <script src="js/modules/courses/details/detailsCoursesController.js"></script>
+        <script src="js/modules/courses/list/listCoursesController.js"></script>
+        <script src="js/modules/security/login/loginController.js"></script>
+        <script src="js/modules/user/details/userDetailsController.js"></script>
+        <!-- endinject -->
+         <!-- inject:css -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href = "css/index.css">
+        <!-- endinject -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="spec/lib/angular-material/angular-material.css" />
+        <!-- endbower -->
+       
+
+    </head>
+    <body layout="column" ng-controller="AppCtrl">
+        <md-toolbar layout="row">
+            <div class="md-toolbar-tools">
+                <md-button  ng-if = "user" ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+                    <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+                </md-button>
+                <h1>TeamStudy</h1>
+            </div>
+         
+        </md-toolbar>
+        <div layout="row" flex>
+            <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+                <header class="nav-header avatar">
+                        <img class="nav-header-imagen" src="{{user.userpictureurl}}" alt="{{user.fullname}}">
+                        <h1 class="avatar-name">{{user.fullname}}</h1>
+                </header>
+                <aside class="aside">
+                    <md-list>
+                       <md-list-item >
+                           <md-button ng-href="#/" ng-click="toggleSidenav('left')" md-no-ink class="md-primary"><md-icon md-font-set="material-icons">school</md-icon> Mis cursos</md-button>
+                        </md-list-item>
+                         <md-list-item>
+                           <md-button ng-href="#/user" ng-click="toggleSidenav('left')" md-no-ink class="md-primary"><md-icon md-font-set="material-icons">face</md-icon> Mis datos</md-button>
+                        </md-list-item>
+                        <md-list-item>
+                           <md-button ng-href="#" ng-click="logout();" md-no-ink class="md-warn"><md-icon md-font-set="material-icons">clear</md-icon> Salir</md-button>
+                        </md-list-item>
+                    </md-list>
+                </aside>
+            </md-sidenav>
+            <div layout="column" flex id="content">
+               <md-content layout="column" flex class="md-padding main" ng-view>
+
+               </md-content>
+            </div>
+        </div>
+
+        <!-- <script type="text/javascript" src="cordova.js"></script> -->
+        <script type="text/javascript" src="js/index.js"></script>
+
+    </body>
+</html>

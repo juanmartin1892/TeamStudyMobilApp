@@ -1,0 +1,24 @@
+<md-list >
+    <div ng-repeat="item in listCourses.coursesList" class = "list-main">
+        <div class = "list-main-item  md-whiteframe-z3">
+            <md-list-item ng-click="listCourses.signatures(item.id)" >
+               <div class="md-list-item-text">
+                    <h3>{{ item.shortname }}</h3>
+                    <h4>{{ item.fullname }}</h4>
+                </div>
+                <md-divider></md-divider>
+            </md-list-item>
+        </div>
+        <div class = "list-main-subItem md-whiteframe-z3 list-main-subItem-{{item.displaySignatures}}" >
+            <md-list>
+                <md-list-item ng-click="listCourses.details(item.id, key)"  ng-repeat="(key, signature) in item.signatures" class = "subItem-item  md-whiteframe-z3">
+               <div class="md-list-item-text">
+                   <h3>{{signature.name}}</h3>
+                    <small ng-bind-html="signature.summary"></small>
+                </div>
+                <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+        </div>
+    </div>
+</md-list>

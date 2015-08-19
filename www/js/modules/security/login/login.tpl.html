@@ -1,0 +1,18 @@
+<div layout="row" layout-wrap layout-align="center" class= "login-container">
+   <form name="send" role = "form" ng-submit = "login.send()" flex-sm="90" flex="50" class="">
+        <md-content layout-padding layout="column" layout-sm="column" class="login-form md-whiteframe-z5">
+            <md-input-container >
+                <label>Nombre de usuario</label>
+                <input ng-model="login.user.name">
+            </md-input-container>
+            <md-input-container  >
+                <label>Contraseña</label>
+                <input ng-model="login.user.pass" type=password>
+            </md-input-container>
+            <div ng-if="login.error">
+                <div class="login-error">{{login.error}}</div>
+            </div>
+            <md-button md-no-ink class="md-raised md-primary"  type="submit">Entrar</md-button>
+        </md-content>
+    </form>
+</div>
